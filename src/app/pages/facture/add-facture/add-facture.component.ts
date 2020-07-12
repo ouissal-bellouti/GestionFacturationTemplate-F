@@ -7,7 +7,7 @@ import { DatePipe } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Article } from '../../article';
 
 
@@ -19,4 +19,19 @@ import { Article } from '../../article';
 
 export class AddFactureComponent implements OnInit {
   ngOnInit(): void {}
+
+  constructor(
+    private service :FactureService, private router:Router,
+    private toastr :ToastrService, public fb: FormBuilder,
+    private datePipe : DatePipe,
+    public clientService: ClientService,
+    public serviceArticle: ArticleService,
+    private currentRoute: ActivatedRoute,) {}
+    get f() { return this.service.formData.controls }
+
+
+  newFacture(){
+    this.service.choixmenu='A'
+    this.router.navigate(['/add-facture']);
+  }
 }

@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-header"><h3 class="title">Ajouter une facture</h3>
         <div class="button-row">
-          <a class="title" class="disabled" color="" routerLink="'/devis'"><button class="btn btn-danger btn-link">Liste</button></a> / Ajouter
+          <a class="title" class="disabled" color="" routerLink="/facture"><button class="btn btn-danger btn-link">Liste</button></a> / Ajouter
         </div>
       </div>
 
@@ -15,7 +15,7 @@
           <div class="col-md-4 pr-md-1">
             <div class="form-group">
               <label> <strong> Ref Devis </strong> </label>
-              <input type="hidden" formControlName="Id">
+              <input type="hidden" formControlName="id">
               <input
               class="form-control"
               type="text"
@@ -49,7 +49,7 @@
               (change)="OnSelectClient($event)"
               >
               <option value="0">-Select-</option>
-              <option *ngFor="let client of this.ClientList" value=" {{Client.Id}} "> {{Client.Nom}} </option>
+              <option *ngFor="let client of this.ClientList" value=" {{Client.id}} "> {{Client.nom}} </option>
               </select>
             </div>
           </div>
@@ -57,12 +57,12 @@
 
           <table class="table table-borderless">
             <thead>
-              <th>Designation</th>
-              <th>Quantité</th>
-              <th>  Prix HT  </th>
+              <th> Designation </th>
+              <th> Quantité </th>
+              <th> Prix HT </th>
               <th> Totale HT  </th>
-              <th>  TVA  </th>
-              <th>  Totale TTC  </th>
+              <th> TVA  </th>
+              <th> Totale TTC </th>
               <th>
                 <button   class="btn btn-sm- btn-dark text-light" (click)="AddData(Id,'A')">
                 <i class=" tim-icons icon-simple-add"> </i>
@@ -96,17 +96,6 @@
           </table>
           <div class="form-group row">
             <div class="col-sm-4 mb-3 mb-sm-0">
-              <div class="form-group">
-                  <label>Total Ht : </label>
-                  <input type="text" class="form-control" id="PrixHT" formControlName="PrixHT" readonly>
-              </div>
-              </div>
-              <div class="col-sm-4 mb-3 mb-sm-0">
-              <div class="form-group">
-                  <label>Total Tva  : </label>
-                  <input type="text" class="form-control" id="TVA" formControlName="TVA" readonly>
-              </div>
-              </div>
               <div class="col-sm-4 mb-3 mb-sm-0">
               <div class="form-group">
               <label>Total TTC : </label>

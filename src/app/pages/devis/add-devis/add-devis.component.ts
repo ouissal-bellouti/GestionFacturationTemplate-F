@@ -4,15 +4,12 @@ import { Client } from '../../client';
 import { Devis } from '../../devis';
 import { DevisService } from 'src/app/services/devis.service';
 import { DatePipe } from '@angular/common';
-import { Produit } from '../../produit';
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute  } from '@angular/router';
-import { NgForm } from '@angular/forms';
 import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule,Validators }
 from '@angular/forms';
-import { Observable } from 'rxjs';
-import { formatDate } from '@angular/common';
+
 import '@angular/localize/init';
 import { Article } from '../../article';
 import { ArticleService } from 'src/app/services/article.service';
@@ -81,7 +78,8 @@ export class AddDevisComponent implements OnInit {
       dialogConfig.disableClose = true;
       dialogConfig.width='50%';
       dialogConfig.data={articleIndex, Id};
-      this.dialog.open(AddArticleComponent, dialogConfig).afterClosed().subscribe(b10 => {
+      this.dialog.open(AddArticleComponent, dialogConfig).afterClosed().
+      subscribe(b10 => {
         this.calcul();
       });
     }
